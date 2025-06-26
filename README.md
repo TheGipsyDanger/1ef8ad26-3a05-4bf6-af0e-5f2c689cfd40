@@ -261,6 +261,11 @@ O projeto segue os princípios da Clean Architecture com separação clara entre
 - Path mapping para imports mais limpos
 - Declarações de tipos para bibliotecas externas
 
+
+### Demo
+
+Video apresentação: https://drive.google.com/file/d/1QUlOpfaa8_JtguGwZVmmGEICOdSvlFOx/view?usp=sharing
+
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
