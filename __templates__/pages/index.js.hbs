@@ -1,0 +1,17 @@
+import * as React from 'react'
+
+import {ScreenLayout, Text, Div} from '~/presentation/components'
+
+import { I{{pascalCase name}} } from './{{pascalCase name}}.types'
+
+export const {{pascalCase name}} = (props: I{{pascalCase name}}.IView) => {
+    return (
+        <ScreenLayout.Main>
+            <ScreenLayout.HeaderWithBack label={`{{pascalCase name}}`} />
+            <ScreenLayout.Body className="py-8 px-6">
+                <Text.GilroyRegular className="mb-6">{`{{pascalCase name}}`}</Text.GilroyRegular>
+                <Div></Div>
+            </ScreenLayout.Body>
+        </ScreenLayout.Main>
+    )
+}

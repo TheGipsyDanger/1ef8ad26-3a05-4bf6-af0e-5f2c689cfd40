@@ -1,0 +1,15 @@
+import { createStaticNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { routes } from "./navigator";
+
+const screens = routes.reduce((acc, item) => {
+  //@ts-ignore
+  acc[item.key] = item.component;
+  return acc;
+}, {});
+
+export const Stack = createNativeStackNavigator({
+  screens,
+});
+
+export const Routes = createStaticNavigation(Stack);

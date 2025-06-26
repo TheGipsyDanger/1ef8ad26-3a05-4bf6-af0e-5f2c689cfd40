@@ -1,0 +1,6 @@
+{
+  "replaceAttrValues": {
+    "#2851a0": "{props.fill}",
+    "#ffffff": "{props.fillSecondary}"
+  }
+}
