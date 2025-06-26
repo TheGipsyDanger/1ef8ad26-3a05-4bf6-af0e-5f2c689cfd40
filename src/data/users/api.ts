@@ -1,6 +1,5 @@
 import {API} from '~/application/configs'
 
-import {IGetRepoDetail} from './types/GetRepoDetail.types'
 import {IGetUserInfos} from './types/GetUserInfos.types'
 import {IGetUserRepos} from './types/GetUserRepos.types'
 
@@ -12,21 +11,25 @@ const getUserInfos = async ({
 }
 
 const getUserRepos = async ({
-    username
+    username,
+    sort = 'created'
 }: IGetUserRepos['request']): Promise<IGetUserRepos['response']> => {
-    const {data} = await API.get<IGetUserRepos['response']>(`/users/${username}/repos`)
-    return data
-}
+    const params = new URLSearchParams()
 
-const getRepoDetail = async ({
-    repoName
-}: IGetRepoDetail['request']): Promise<IGetRepoDetail['response']> => {
-    const {data} = await API.get<IGetRepoDetail['response']>(`/repos/${repoName}`)
+    params.append('per_page', '100')
+
+    if (sort) params.append('sort', sort)
+
+    const queryString = params.toString()
+
+    const url = `/users/${username}/repos${queryString ? `?${queryString}` : ''}`
+
+    const {data} = await API.get<IGetUserRepos['response']>(url)
+
     return data
 }
 
 export const usersApi = {
     getUserInfos,
-    getUserRepos,
-    getRepoDetail
+    getUserRepos
 }

@@ -75,7 +75,6 @@ data/
     │   ├── GetUserInfos.types.ts
     │   └── GetUserRepos.types.ts
     └── useCases/        # Casos de uso
-        ├── useGetRepoDetail.ts
         ├── useGetUserInfos.ts
         └── useGetUserRepos.ts
 ```
@@ -172,15 +171,6 @@ cd ios && pod install && cd ..
 ```
 
 ### Executando o Projeto
-
-#### Desenvolvimento
-
-```bash
-# Iniciar o servidor de desenvolvimento
-yarn start
-# ou
-npm start
-```
 
 #### iOS
 

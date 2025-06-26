@@ -10,7 +10,7 @@ export enum AppRoutes {
 export type RootParamListT = {
     [AppRoutes.Main]: undefined
     [AppRoutes.UserDetails]: undefined
-    [AppRoutes.UserRepos]: undefined
+    [AppRoutes.UserRepos]: {repoName: string}
     [AppRoutes.RepoDetails]: {page: string}
 }
 

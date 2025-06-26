@@ -1,16 +1,16 @@
 import * as React from 'react'
 import {useCallback, useMemo} from 'react'
-import {FlatList, ListRenderItem, Image} from 'react-native'
+import {FlatList, ListRenderItem, Image, ActivityIndicator} from 'react-native'
 
 import FontAwesome from '@expo/vector-icons/FontAwesome'
-import {ScreenLayout, Text, Div, Conditional} from '~/presentation/components'
+import {ScreenLayout, Text, Div, Conditional, SubheaderFilter} from '~/presentation/components'
 import {IRepo} from '~/utils'
 
 import {useUserRepos} from './UserRepos.model'
 import {IUserRepos} from './UserRepos.types'
 
 export const UserRepos = (props: IUserRepos.IView) => {
-    const {repos, handleSubmit} = useUserRepos({})
+    const {repos, handleSubmit, isLoading} = useUserRepos({})
 
     const renderRepoStatus = (count: number, icon: 'code-fork' | 'star-o') => {
         return (
@@ -74,7 +74,13 @@ export const UserRepos = (props: IUserRepos.IView) => {
         <ScreenLayout.Main>
             <ScreenLayout.HeaderWithBack />
             <ScreenLayout.Body className="px-6">
-                <Text.GilroyBold className="text-2xl text-text-primary mb-6">{`Repositories`}</Text.GilroyBold>
+                <Div className="gap-6 mb-6">
+                    <Text.GilroyBold className="text-2xl text-text-primary">{`Repositories`}</Text.GilroyBold>
+                    <SubheaderFilter />
+                </Div>
+                <Conditional render={isLoading}>
+                    <ActivityIndicator size="large" />
+                </Conditional>
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={repos}

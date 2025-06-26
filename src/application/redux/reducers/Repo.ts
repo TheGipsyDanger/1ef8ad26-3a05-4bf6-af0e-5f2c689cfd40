@@ -1,12 +1,14 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {IRepo} from '~/utils'
+import {IRepo, IFilterOptions} from '~/utils'
 
 export interface IRepoState {
     repos: IRepo[]
+    filter: IFilterOptions
 }
 
 const initialState: IRepoState = {
-    repos: []
+    repos: [],
+    filter: 'created'
 }
 
 const Repo = createSlice({
@@ -18,10 +20,16 @@ const Repo = createSlice({
         },
         clearRepos: state => {
             state.repos = initialState.repos
+        },
+        setFilter: (state, {payload}) => {
+            state.filter = payload
+        },
+        clearFilter: state => {
+            state.filter = initialState.filter
         }
     }
 })
 
-export const {setRepos, clearRepos} = Repo.actions
+export const {setRepos, clearRepos, setFilter, clearFilter} = Repo.actions
 
 export default Repo.reducer

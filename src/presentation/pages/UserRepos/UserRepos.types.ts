@@ -6,5 +6,6 @@ export namespace IUserRepos {
     export interface IModel {
         repos: IRepo[]
         handleSubmit: (repoName: string) => void
+        isLoading: boolean
     }
 }

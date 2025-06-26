@@ -6,6 +6,5 @@ export namespace IUserDetails {
     export interface IModel {
         user: IUser
         handleSubmit: VoidFunction
-        isLoading: boolean
     }
 }

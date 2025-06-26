@@ -12,7 +12,7 @@ const screens = routes.reduce((acc, item) => {
 }, {})
 
 const Stack = createNativeStackNavigator({
-    initialRouteName: 'Main',
+    initialRouteName: 'UserDetails',
     screenOptions: {
         headerShown: false
     },

@@ -10,7 +10,7 @@ import {IUserDetails} from './UserDetails.types'
 const {width} = Dimensions.get('window')
 
 export const UserDetails = (props: IUserDetails.IView) => {
-    const {user, handleSubmit, isLoading} = useUserDetails({})
+    const {user, handleSubmit} = useUserDetails({})
 
     const renderCustomInfos = (label: string, value: number) => (
         <Div className="items-center">
@@ -44,11 +44,7 @@ export const UserDetails = (props: IUserDetails.IView) => {
                         {renderCustomInfos('Following', user.following)}
                     </Div>
                 </Div>
-                <Button.Success
-                    label="See repositories"
-                    onPress={handleSubmit}
-                    loading={isLoading}
-                />
+                <Button.Success label="See repositories" onPress={handleSubmit} />
             </ScreenLayout.Body>
         </ScreenLayout.Main>
     )

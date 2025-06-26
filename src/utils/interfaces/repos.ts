@@ -101,3 +101,5 @@ export interface IOwner {
     user_view_type: string
     site_admin: boolean
 }
+
+export type IFilterOptions = 'created' | 'updated' | 'pushed' | 'full_name' | 'stargazers_count'

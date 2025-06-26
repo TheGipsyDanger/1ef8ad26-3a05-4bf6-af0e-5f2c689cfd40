@@ -1,5 +1,4 @@
 import {usersApi} from './api'
-import {IGetRepoDetail} from './types/GetRepoDetail.types'
 import {IGetUserInfos} from './types/GetUserInfos.types'
 import {IGetUserRepos} from './types/GetUserRepos.types'
 
@@ -17,15 +16,7 @@ const getUserRepos = async (
     return data
 }
 
-const getRepoDetail = async (
-    props: IGetRepoDetail['request']
-): Promise<IGetRepoDetail['response']> => {
-    const data = await usersApi.getRepoDetail(props)
-    return data
-}
-
 export const usersService = {
     getUserInfos,
-    getUserRepos,
-    getRepoDetail
+    getUserRepos
 }
